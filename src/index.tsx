@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 // need to change browserRouter to HashRouter for gh-pages
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main';
 import './index.scss';
 import Favicon from 'react-favicon';
@@ -15,13 +15,13 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <>
     <Favicon url={favicon} />
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/leaders" element={<LeaderBoard />} />
         </Routes>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </>,
 );

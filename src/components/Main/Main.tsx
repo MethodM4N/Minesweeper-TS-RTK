@@ -31,6 +31,11 @@ const Main: React.FC = () => {
   const leaderBoard = useSelector(selectLeaderBoard);
 
   useEffect(() => {
+    const json = JSON.stringify(leaderBoard);
+    localStorage.setItem('leaderBoard', json);
+  }, [leaderBoard]);
+
+  useEffect(() => {
     if (difficultValue === 'easy') {
       setBombValue(gameAdjustments.easy.NU_OF_BOMBS);
       setRowValue(gameAdjustments.easy.MAX_ROWS);
@@ -98,14 +103,11 @@ const Main: React.FC = () => {
   useEffect(() => {
     if (hasWon) {
       const userName = getLocalStorageName();
-      console.log(time);
       const data = { time, userName, difficultValue };
       dispatch(addWinStats(data));
       setLive(false);
       setBombCounter(0);
       setFace(Face.won);
-      const json = JSON.stringify(leaderBoard);
-      localStorage.setItem('leaderBoard', json);
     }
   }, [hasWon]);
 

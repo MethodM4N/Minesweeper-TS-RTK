@@ -1,0 +1,53 @@
+@import '../../styles/mixins.scss';
+
+.Button {
+  @include borders;
+  @include buttons;
+  background-color: transparent;
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+
+  &.visible {
+    border-color: #7b7b7b;
+    border-width: 1px;
+  }
+
+  &.red {
+    background: red;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.value_1 {
+    color: #0000ff;
+  }
+  &.value_2 {
+    color: #008000;
+  }
+  &.value_3 {
+    color: #ff0000;
+  }
+  &.value_4 {
+    color: #000080;
+  }
+  &.value_5 {
+    color: #800000;
+  }
+  &.value_6 {
+    color: #008080;
+  }
+  &.value_7 {
+    color: #000000;
+  }
+  &.value_8 {
+    color: #808080;
+  }
+}

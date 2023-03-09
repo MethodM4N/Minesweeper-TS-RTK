@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "./static/css/main.88e7b543.css",
+    "main.js": "./static/js/main.a1331768.js",
+    "static/media/DIGITALDREAMSKEWNARROW.ttf": "./static/media/DIGITALDREAMSKEWNARROW.9f15ddc5118904b132c1.ttf",
+    "index.html": "./index.html",
+    "main.88e7b543.css.map": "./static/css/main.88e7b543.css.map",
+    "main.a1331768.js.map": "./static/js/main.a1331768.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88e7b543.css",
+    "static/js/main.a1331768.js"
+  ]
+}

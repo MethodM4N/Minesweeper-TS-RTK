@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client';
+// need to change browserRouter to HashRouter for gh-pages
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './components/Main/Main';
 import './index.scss';

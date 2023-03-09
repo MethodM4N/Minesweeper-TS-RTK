@@ -7,17 +7,17 @@ export const gameAdjustments = {
   easy: {
     MAX_ROWS: 8,
     MAX_COLS: 8,
-    NU_OF_BOMBS: 1,
+    NU_OF_BOMBS: 10,
   },
   norm: {
     MAX_ROWS: 16,
     MAX_COLS: 16,
-    NU_OF_BOMBS: 2,
+    NU_OF_BOMBS: 40,
   },
   hard: {
     MAX_ROWS: 16,
     MAX_COLS: 32,
-    NU_OF_BOMBS: 1,
+    NU_OF_BOMBS: 100,
   },
 };
 

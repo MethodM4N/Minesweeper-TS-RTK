@@ -4,7 +4,7 @@
 
 ## Ссылка на Github Pages
 
-https://methodm4n.github.io/Minesweeper-TS/
+https://methodm4n.github.io/Minesweeper-TS-RTK/
 
 ## Инструкция по установке и запуску
 

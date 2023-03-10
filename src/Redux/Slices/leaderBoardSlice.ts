@@ -31,17 +31,7 @@ export const leaderBoardSlice = createSlice({
         const winTime = action.payload.time;
         const newLeaderBoard = state.easy;
         newLeaderBoard.push({ player, winTime });
-        newLeaderBoard
-          .sort((a, b) => {
-            if (a.winTime > b.winTime) {
-              return 1;
-            }
-            if (a.winTime < b.winTime) {
-              return -1;
-            }
-            return 0;
-          })
-          .splice(-1, 1);
+        newLeaderBoard.sort((a, b) => a.winTime - b.winTime).splice(-1, 1);
         state.easy = newLeaderBoard;
       }
       if (action.payload.difficultValue === 'norm') {
@@ -49,17 +39,7 @@ export const leaderBoardSlice = createSlice({
         const winTime = action.payload.time;
         const newLeaderBoard = state.norm;
         newLeaderBoard.push({ player, winTime });
-        newLeaderBoard
-          .sort((a, b) => {
-            if (a.winTime > b.winTime) {
-              return 1;
-            }
-            if (a.winTime < b.winTime) {
-              return -1;
-            }
-            return 0;
-          })
-          .splice(-1, 1);
+        newLeaderBoard.sort((a, b) => a.winTime - b.winTime).splice(-1, 1);
         state.norm = newLeaderBoard;
       }
       if (action.payload.difficultValue === 'hard') {
@@ -67,17 +47,7 @@ export const leaderBoardSlice = createSlice({
         const winTime = action.payload.time;
         const newLeaderBoard = state.hard;
         newLeaderBoard.push({ player, winTime });
-        newLeaderBoard
-          .sort((a, b) => {
-            if (a.winTime > b.winTime) {
-              return 1;
-            }
-            if (a.winTime < b.winTime) {
-              return -1;
-            }
-            return 0;
-          })
-          .splice(-1, 1);
+        newLeaderBoard.sort((a, b) => a.winTime - b.winTime).splice(-1, 1);
         state.hard = newLeaderBoard;
       }
       getLocalStorageLeaderBoard();

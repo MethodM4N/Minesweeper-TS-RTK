@@ -11,11 +11,16 @@
   opacity: 0;
 
   .container {
+    max-width: 235px;
     border: 1px solid #06f;
     background-color: #ddd;
     display: flex;
     flex-direction: column;
     position: relative;
+
+    @media (max-width: 560px) {
+      max-width: 223px;
+    }
   }
 
   .flex {

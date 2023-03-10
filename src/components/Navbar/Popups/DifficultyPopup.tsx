@@ -111,6 +111,15 @@ const DifficultyPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
             </ul>
           </div>
         </div>
+        <span
+          className={`DifficultyPopup__error ${
+            width.medium ? 'DifficultyPopup__error_visible' : ''
+          }`}>
+          {width.mobile ? 'Сложности' : width.medium ? 'Сложность' : ''} {width.mobile && 'Easy и'}{' '}
+          {width.medium && 'Hard'}{' '}
+          {width.mobile ? 'не доступны' : width.medium ? 'не доступна' : ''} на данном разрешении
+          экрана.
+        </span>
       </section>
     </MyPopup>
   );

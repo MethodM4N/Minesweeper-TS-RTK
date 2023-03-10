@@ -69,4 +69,14 @@
       }
     }
   }
+  &__error {
+    display: none;
+    text-align: center;
+    font-style: italic;
+    color: rgb(233, 82, 82);
+  }
+  &__error_visible {
+    display: block;
+    padding-bottom: 3px;
+  }
 }

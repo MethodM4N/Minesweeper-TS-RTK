@@ -21,28 +21,28 @@ export const gameAdjustments = {
   },
 };
 
+export const faceIco = [smileIco, ohIco, lostIco, wonIco];
+
 export const initialLeaderBoard = {
   easy: [
-    { player: 'Федя', winTime: 2 },
-    { player: 'Артем', winTime: 4 },
-    { player: 'Степа', winTime: 6 },
-    { player: 'John', winTime: 7 },
-    { player: 'Федя', winTime: 8 },
-  ],
-  norm: [
-    { player: 'Федя', winTime: 12 },
-    { player: 'Артем', winTime: 14 },
-    { player: 'Степа', winTime: 16 },
-    { player: 'Витя', winTime: 17 },
-    { player: 'Федя', winTime: 18 },
-  ],
-  hard: [
-    { player: 'Федя', winTime: 112 },
-    { player: 'Артем', winTime: 114 },
-    { player: 'Степа', winTime: 116 },
-    { player: 'Гена', winTime: 117 },
+    { player: 'Федя', winTime: 32 },
+    { player: 'Артем', winTime: 44 },
+    { player: 'Степа', winTime: 86 },
+    { player: 'John', winTime: 111 },
     { player: 'Федя', winTime: 118 },
   ],
+  norm: [
+    { player: 'Федя', winTime: 86 },
+    { player: 'Артем', winTime: 148 },
+    { player: 'Степа', winTime: 149 },
+    { player: 'Витя', winTime: 221 },
+    { player: 'Федя', winTime: 228 },
+  ],
+  hard: [
+    { player: 'Федя', winTime: 312 },
+    { player: 'Артем', winTime: 314 },
+    { player: 'Степа', winTime: 416 },
+    { player: 'Гена', winTime: 517 },
+    { player: 'Федя', winTime: 518 },
+  ],
 };
-
-export const faceIco = [smileIco, ohIco, lostIco, wonIco];

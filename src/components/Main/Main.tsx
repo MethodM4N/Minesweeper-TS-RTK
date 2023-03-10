@@ -197,9 +197,12 @@ const Main: React.FC = () => {
         setCells(currentCells);
         setBombCounter(bombCounter - 1);
       } else if (currentCell.state === CellState.flagged) {
-        currentCells[rowParam][colParam].state = CellState.hidden;
+        currentCells[rowParam][colParam].state = CellState.marked;
         setCells(currentCells);
         setBombCounter(bombCounter + 1);
+      } else if (currentCell.state === CellState.marked) {
+        currentCells[rowParam][colParam].state = CellState.hidden;
+        setCells(currentCells);
       }
     };
 

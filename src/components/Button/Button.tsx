@@ -2,6 +2,7 @@ import React from 'react';
 import { CellState, CellValue } from '../../types/types';
 import bombIco from '../../assets/img/bombIco.png';
 import flagIco from '../../assets/img/flagIco.png';
+import questionIco from '../../assets/img/questionIco.png';
 
 import './Button.scss';
 
@@ -27,6 +28,8 @@ const Button: React.FC<ButtonProps> = ({ col, onClick, onRightClick, red, row, s
       return value;
     } else if (state === CellState.flagged) {
       return <img src={flagIco} alt="flag" />;
+    } else if (state === CellState.marked) {
+      return <img src={questionIco} alt="marked" />;
     }
 
     return null;

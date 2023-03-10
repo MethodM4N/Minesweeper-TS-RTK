@@ -8,13 +8,14 @@ export enum CellValue {
   six,
   seven,
   eight,
-  bomb
+  bomb,
 }
 
 export enum CellState {
   hidden,
   visible,
-  flagged
+  flagged,
+  marked,
 }
 
 export type Cell = { value: CellValue; state: CellState; red?: boolean };
@@ -23,5 +24,5 @@ export enum Face {
   smile,
   oh,
   lost,
-  won
+  won,
 }

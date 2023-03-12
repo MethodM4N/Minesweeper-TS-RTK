@@ -38,6 +38,9 @@
       padding: 0;
       margin: 0 0 2px 2px;
       padding-left: 2px;
+      @media (max-width: 560px) {
+        max-width: 180px;
+      }
     }
     label {
       color: red;

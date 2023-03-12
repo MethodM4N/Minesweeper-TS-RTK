@@ -30,87 +30,6 @@ const Main: React.FC = () => {
   const { difficultValue } = useSelector(selectSettings);
   const leaderBoard = useSelector(selectLeaderBoard);
 
-  useEffect(() => {
-    const json = JSON.stringify(leaderBoard);
-    localStorage.setItem('leaderBoard', json);
-  }, [leaderBoard]);
-
-  useEffect(() => {
-    if (difficultValue === 'easy') {
-      setBombValue(gameAdjustments.easy.NU_OF_BOMBS);
-      setRowValue(gameAdjustments.easy.MAX_ROWS);
-      setColValue(gameAdjustments.easy.MAX_COLS);
-    }
-    if (difficultValue === 'hard') {
-      setBombValue(gameAdjustments.hard.NU_OF_BOMBS);
-      setRowValue(gameAdjustments.hard.MAX_ROWS);
-      setColValue(gameAdjustments.hard.MAX_COLS);
-    }
-    if (difficultValue === 'norm') {
-      setBombValue(gameAdjustments.norm.NU_OF_BOMBS);
-      setRowValue(gameAdjustments.norm.MAX_ROWS);
-      setColValue(gameAdjustments.norm.MAX_COLS);
-    }
-  }, [difficultValue]);
-
-  useEffect(() => {
-    const newCells = generateCells(colValue, rowValue, bombValue);
-    setCells(newCells);
-    setBombCounter(bombValue);
-  }, [bombValue]);
-
-  useEffect(() => {
-    if (hasLost || hasWon) {
-      return;
-    }
-
-    const handleMouseDown = (): void => {
-      setFace(Face.oh);
-    };
-
-    const handleMouseUp = (): void => {
-      setFace(Face.smile);
-    };
-
-    buttons.current?.addEventListener('mousedown', handleMouseDown);
-    buttons.current?.addEventListener('mouseup', handleMouseUp);
-
-    return () => {
-      buttons.current?.removeEventListener('mousedown', handleMouseDown);
-      buttons.current?.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [hasLost, hasWon]);
-
-  useEffect(() => {
-    if (live && time < 999) {
-      const timer = setInterval(() => {
-        setTime(time + 1);
-      }, 1000);
-
-      return () => {
-        clearInterval(timer);
-      };
-    }
-  }, [live, time]);
-
-  useEffect(() => {
-    if (hasLost) {
-      setLive(false);
-      setFace(Face.lost);
-    }
-  }, [hasLost]);
-
-  useEffect(() => {
-    if (hasWon) {
-      const userName = getLocalStorageName();
-      const data = { time, userName, difficultValue };
-      dispatch(addWinStats(data));
-      setLive(false);
-      setBombCounter(0);
-      setFace(Face.won);
-    }
-  }, [hasWon]);
-
   const handleCellClick = (rowParam: number, colParam: number) => (): void => {
     let newCells = cells.slice();
 
@@ -231,6 +150,87 @@ const Main: React.FC = () => {
       }),
     );
   };
+
+  useEffect(() => {
+    const json = JSON.stringify(leaderBoard);
+    localStorage.setItem('leaderBoard', json);
+  }, [leaderBoard]);
+
+  useEffect(() => {
+    if (difficultValue === 'easy') {
+      setBombValue(gameAdjustments.easy.NU_OF_BOMBS);
+      setRowValue(gameAdjustments.easy.MAX_ROWS);
+      setColValue(gameAdjustments.easy.MAX_COLS);
+    }
+    if (difficultValue === 'hard') {
+      setBombValue(gameAdjustments.hard.NU_OF_BOMBS);
+      setRowValue(gameAdjustments.hard.MAX_ROWS);
+      setColValue(gameAdjustments.hard.MAX_COLS);
+    }
+    if (difficultValue === 'norm') {
+      setBombValue(gameAdjustments.norm.NU_OF_BOMBS);
+      setRowValue(gameAdjustments.norm.MAX_ROWS);
+      setColValue(gameAdjustments.norm.MAX_COLS);
+    }
+  }, [difficultValue]);
+
+  useEffect(() => {
+    const newCells = generateCells(colValue, rowValue, bombValue);
+    setCells(newCells);
+    setBombCounter(bombValue);
+  }, [bombValue]);
+
+  useEffect(() => {
+    if (hasLost || hasWon) {
+      return;
+    }
+
+    const handleMouseDown = (): void => {
+      setFace(Face.oh);
+    };
+
+    const handleMouseUp = (): void => {
+      setFace(Face.smile);
+    };
+
+    buttons.current?.addEventListener('mousedown', handleMouseDown);
+    buttons.current?.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      buttons.current?.removeEventListener('mousedown', handleMouseDown);
+      buttons.current?.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [hasLost, hasWon]);
+
+  useEffect(() => {
+    if (live && time < 999) {
+      const timer = setInterval(() => {
+        setTime(time + 1);
+      }, 1000);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [live, time]);
+
+  useEffect(() => {
+    if (hasLost) {
+      setLive(false);
+      setFace(Face.lost);
+    }
+  }, [hasLost]);
+
+  useEffect(() => {
+    if (hasWon) {
+      const userName = getLocalStorageName();
+      const data = { time, userName, difficultValue };
+      dispatch(addWinStats(data));
+      setLive(false);
+      setBombCounter(0);
+      setFace(Face.won);
+    }
+  }, [hasWon]);
 
   return (
     <>

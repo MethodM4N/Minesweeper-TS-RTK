@@ -20,6 +20,15 @@ const DifficultyPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
     mobile: windowWidth < 560,
   };
 
+  const changeDiffValue = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setDifficultyValue(e.target.value);
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    dispatch(changeDifficult(difficultyValue));
+    onClose();
+  }
+
   useEffect(() => {
     if (width.medium) {
       dispatch(changeDifficult('norm'));
@@ -32,15 +41,6 @@ const DifficultyPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
       setDifficultyValue(difficultValue);
     }
   }, []);
-
-  const changeDiffValue = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setDifficultyValue(e.target.value);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    dispatch(changeDifficult(difficultyValue));
-    onClose();
-  }
 
   return (
     <MyPopup
@@ -97,12 +97,12 @@ const DifficultyPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
             <ul>
               <li>8</li>
               <li>16</li>
-              <li>32</li>
+              <li>16</li>
             </ul>
             <ul>
               <li>8</li>
               <li>16</li>
-              <li>16</li>
+              <li>32</li>
             </ul>
             <ul>
               <li>10</li>

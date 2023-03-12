@@ -1,4 +1,4 @@
-import React, { LegacyRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { getLocalStorageName } from '../../../utils/getLocalStorageName';
 import MyPopup from '../../UI/MyPopup';

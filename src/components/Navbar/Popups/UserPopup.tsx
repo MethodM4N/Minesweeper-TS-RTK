@@ -1,6 +1,5 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { LegacyRef, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { clearScreenDown } from 'readline';
 import { getLocalStorageName } from '../../../utils/getLocalStorageName';
 import MyPopup from '../../UI/MyPopup';
 
@@ -24,6 +23,7 @@ const UserPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setFocus,
   } = useForm<FormValues>({
     mode: 'onChange',
   });
@@ -37,6 +37,10 @@ const UserPopup: React.FC<ChildrenProp> = ({ isOpen, onClose }) => {
     reset();
     onClose();
   }
+
+  useEffect(() => {
+    setFocus('userName');
+  }, [isOpen]);
 
   useEffect(() => reset(), [onClose]);
 
